@@ -130,6 +130,22 @@ nav.scrolled {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--light);
+}
+
+/* Mobile Menu Active State */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    background: var(--darker);
+    padding: 8rem 2rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }
 
 /* Hero Section */
@@ -649,14 +665,44 @@ footer {
 
     .menu-btn {
         display: block;
+        z-index: 1001;
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+    }
+
+    .hero h3 {
+        font-size: 1.5rem;
     }
 
     .hero-btns {
-        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-image {
+        width: 280px;
+        height: 280px;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.22rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
     }
 }
 

@@ -9,17 +9,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile Menu Toggle (Simplified)
-    const menuBtn = id('mobile-menu');
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
+    const menuIcon = menuBtn.querySelector('i');
 
-    // In a real implementation, you'd toggle a class to show/hide the menu on mobile
-    // For now, let's just log it exists
     if (menuBtn) {
         menuBtn.addEventListener('click', () => {
-            alert('Mobile menu clicked - this would toggle the menu on a real device.');
+            navLinks.classList.toggle('active');
+            // Toggle between hamburger and X icon
+            if (navLinks.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
         });
     }
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        });
+    });
 
     // Scroll Reveal Animation
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
